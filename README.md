@@ -10,8 +10,9 @@ This project explores using CQRS to implement a service that accepts simple ecom
  balance integrity; we cannot loose messages between the storing of a transaction and the updating of the account balance.
  All other views of transactions are implemented as separate _aggregates_ listening on an event bus.
 
-## Running the saample
+## Running the sample
 Start the REST interface using:
+
     sbt run
     
 This starts an `akka-http` server listening on all local interfaces, port 9000. This can be changed in `application.conf`.
