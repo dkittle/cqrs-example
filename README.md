@@ -22,6 +22,10 @@ This starts an `akka-http` server listening on all local interfaces, port 9000. 
 ### Post a basic order
     curl -i -X POST -H "Content-Type: application/json" http://localhost:9000/order -d '{"orderId":"83123","items":[{"name":"salt & vinegar chips","quantity":2.0,"tags":["snacks","chips"],"itemId":"83451","unitPrice":1.25},{"name":"club soda","quantity":1.0,"tags":["drinks","carbonated","2l"],"itemId":"9988563","unitPrice":2.55}],"amount":4.75,"posId":"145a","customerId":"8300","taxAmount":0.0,"date":"2017-08-08T12:43:10.709+02:00[Europe/Berlin]"}'
 
+### Shut down the webserver
+Please don't do this in production - anyone will be able to shut down your awesome service :-/
+
+    curl -i -X POST http://localhost:9000/quit
 
 ### missing POS ID
     curl -i -X POST -H "Content-Type: application/json" http://localhost:9000/order -d '{"orderId":"83123","items":[{"name":"salt & vinegar chips","quantity":2.0,"tags":["snacks","chips"],"itemId":"83451","unitPrice":1.25},{"name":"club soda","quantity":1.0,"tags":["drinks","carbonated","2l"],"itemId":"9988563","unitPrice":2.55}],"amount":4.75,"posId":"","customerId":"8300","taxAmount":0.0,"date":"2017-08-08T12:43:10.709+02:00[Europe/Berlin]"}'
